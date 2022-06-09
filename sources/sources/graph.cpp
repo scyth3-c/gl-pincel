@@ -6,25 +6,16 @@ GLint  Graph:: sit   =     0;
 GLint  Graph:: bSit  =     0;
 
 
-
-vector<GLenum>   Graph::styles              = {GL_POINTS, GL_LINE_STRIP, GL_LINE_LOOP,GL_POLYGON};
+GLenum           Graph::styles[4]           = {GL_POINTS, GL_LINE_STRIP, GL_LINE_LOOP,GL_POLYGON};
 std::string      Graph::analog_types[4]     = {"Points *", "Lines |", "Line Loop / ", "Polygon /\\"};
 
 
-vector<int >        Graph::pila_puntos     = {};
 vector<point_t*>    Graph::puntos          = {};
 
 
-vector<GLboolean> Graph::flags      = {false, false, false};
-vector<point_t*> Graph::buffer_uno  = {};
-vector<point_t*> Graph::buffer_dos  = {};
-vector<point_t*> Graph::buffer_tres = {};
-
-
-vector<vector<point_t*>> Graph::_buffers = {buffer_uno, buffer_dos, buffer_tres};
-
-
-vector<GLclampf> Graph::temp_color = {};
+vector<GLboolean>           Graph::flags        = {false};
+vector<vector<point_t*>>    Graph::_buffers     = { {0,0} };
+vector<GLclampf>            Graph::temp_color   = {};
 
 vector<vector<GLclampf>> Graph::bColors = {
   {1.0f, 0.2f, 0.1f, 1},
@@ -160,6 +151,7 @@ void Graph::keyboard(unsigned char key, int x, int y) {
 
     break;
 
+
   default:
       break;
   }
@@ -206,7 +198,7 @@ void Graph::light() {
 void Graph::point(int X, int Y) 
 {
  auto *temp = new point_t(X,alto-Y);
- puntos.push_back(std::move(temp));
+ puntos.emplace_back(std::move(temp));
 }
 
 void Graph::show() {
@@ -220,9 +212,9 @@ void Graph::show() {
 }
 
 
-void Graph::showBuffer(int it) {
+void Graph::showBuffer(int _it) {
     glBegin(styles[sit]);
-    for (auto &it : _buffers[it])
+    for (auto &it : _buffers[_it])
     {   
          glVertex2d(it->x, it->y);
          it->estado=true;
@@ -243,8 +235,8 @@ void Graph::bufferify() {
         }
     }
 
-    vector<point_t*> temp = {};
-    _buffers.push_back(std::move(temp));
+     vector<point_t*> temp;
+    _buffers.emplace_back(std::move(temp));
     flags.push_back(false);
 }
 

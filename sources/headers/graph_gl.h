@@ -1,11 +1,8 @@
 #ifndef _GRAPH_H
 #define _GRAPH_H
 
-
-#include <GL/gl.h>
-#include <GL/glu.h>
 #include <GL/glut.h>
-#include <iostream>
+#include <string>
 
 #include <vector>
 using std::vector;
@@ -35,14 +32,9 @@ private:
 
 
     static vector<point_t*> puntos;
-    static vector<int > pila_puntos;
-    static vector<GLenum> styles;
+    static GLenum styles[4];
     
     static vector<GLboolean> flags;
-
-    static vector<point_t*> buffer_uno;
-    static vector<point_t*> buffer_dos;
-    static vector<point_t*> buffer_tres;
 
     static vector<vector<point_t*>> _buffers;
 
@@ -80,6 +72,7 @@ static void showBuffer(int);
 static void bufferify();
 static void clearBuffer();
 static void textify(std::string, int, int);
+static void genTextfy();
 
 };
 
