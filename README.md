@@ -39,6 +39,20 @@ a pincel with anchor points, you can draw  arbitrarily or with anchos poins poly
 ![Captura desde 2022-06-08 20-44-41](https://user-images.githubusercontent.com/52190352/172750924-3cc7e78c-09bd-43fa-8cba-8cb31421c184.png)
 
 
+
+## performance
+
+### linux
+
+**idle**
+
+| memory       | CPU            | read / write  |
+| :---         |     :---:      |          ---: |
+| 16.4 MB      |  2.47          |   N/D-N/D     |
+
+
+
+
 ## About
 
 this is actually a "plus version" of a previous repository called draw any modes and I decided to redo it for fun, this is not an official program or anything like that, but if you want to use it that way it would be great.
