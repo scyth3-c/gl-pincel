@@ -17,7 +17,7 @@
 
 
 # gl-pincel
-a pincel with anchor points, you can draw  arbitrarily or with anchos poins polygons
+a pincel with anchor points, you can draw  arbitrarily or with anchos poins polygons, you can use as many layers as you want, each drawing stays on one, to add a layer with this that does not connect the dots, is by right clicking on it
 
 ## compile and build
 
