@@ -46,7 +46,7 @@ a pincel with anchor points, you can draw  arbitrarily or with anchos poins poly
 
 **idle**
 
-| memory       | CPU            | read / write  |
+| RAM          | CPU            | read / write  |
 | :---         |     :---:      |          ---: |
 | 16.4 MB      |  2.47          |   N/D-N/D     |
 
